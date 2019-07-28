@@ -27,7 +27,7 @@ jobs:
           command: npm run build
       - run: 
           name: Push to Github Pages
-          command: npm run gh-pages -d dist
+          command: gh-pages -d dist
   
     
     
