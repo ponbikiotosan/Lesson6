@@ -16,11 +16,14 @@ jobs:
           name: Installing gh-pages
           command: sudo npm install -g gh-pages
       - run:
+          name: Installing parcel
+          command: sudo npm install -g parcel
+      - run:
           name: Remove dist pakage
           command: rm -rf dist
       - run: 
-          name: Building a projeck
-          command: npm run build
+          name: Building a project
+          command: parcel build ./index.html  --public-url /Lesson6
       - run: git config user.email "ikharlamov21@gmail.com"
       - run: git config user.name "Kharya1337"
       - run: 
