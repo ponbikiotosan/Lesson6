@@ -15,17 +15,15 @@ jobs:
           key: dependency-cache-{{ checksum "package.json" }}
           paths:
             - ./node_modules
-  # deploy:
-  #   steps: 
-  #     - run:
-  #         name: Installing gh-pages
-  #         command: npm install gh-pages
-  #     - run:
-  #         name: Build a project
-  #         command: npm run rm -rf dist && parcel build ./index.html  --public-url /illya-interns-work
-  #     - run: 
-  #         name: Push to Github Pages
-  #         command: npm run gh-pages -d dist
+      - run:
+          name: Installing gh-pages
+          command: npm install gh-pages
+      - run:
+          name: Build a project
+          command: npm run rm -rf dist && parcel build ./index.html  --public-url /illya-interns-work
+      - run: 
+          name: Push to Github Pages
+          command: npm run gh-pages -d dist
   
     
     
