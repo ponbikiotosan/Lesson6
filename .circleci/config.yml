@@ -8,9 +8,6 @@ jobs:
       - run: 
           name: Installing the modules
           command: npm install
-      # - run:
-      #     name: Linter
-      #     command: npm run lint
       - save_cache:
           key: dependency-cache-{{ checksum "package.json" }}
           paths:
