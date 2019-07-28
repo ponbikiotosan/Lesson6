@@ -20,7 +20,7 @@ jobs:
           command: rm -rf dist
       - run: 
           name: Building a projeck
-          command: npm run parcel build ./index.html  --public-url /Lesson6
+          command: npm parcel build ./index.html  --public-url /Lesson6
       - run: 
           name: Push to Github Pages
           command: npm run gh-pages -d dist
