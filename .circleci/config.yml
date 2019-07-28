@@ -16,8 +16,11 @@ jobs:
           name: Installing gh-pages
           command: npm install gh-pages
       - run:
-          name: Build a project
-          command: npm run rm -rf dist && parcel build ./index.html  --public-url /illya-interns-work
+          name: Remove dist pakage
+          command: rm -rf dist
+      - run: 
+          name: Building a projeck
+          command: npm run parcel build ./index.html  --public-url /Lesson6
       - run: 
           name: Push to Github Pages
           command: npm run gh-pages -d dist

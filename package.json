@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/Kharya1337/Lesson6/issues"
   },
-  "homepage": "https://github.com/Kharya1337/Lesson6#readme"
+  "homepage": "https://github.com/Kharya1337/Lesson6#readme",
+  "dependencies": {
+    "parcel": "^1.12.3"
+  }
 }
