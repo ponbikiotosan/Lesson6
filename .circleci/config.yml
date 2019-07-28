@@ -14,7 +14,11 @@ jobs:
             - ./node_modules
       - run:
           name: Installing gh-pages
-          command: npm install gh-pages -g
+          command: mkdir ~/.npm-global
+          command: npm config set prefix '~/.npm-global'
+          command: export PATH=~/.npm-global/bin:$PATH
+          command: source ~/.profile
+          command: npm install -g gh-pages
       - run:
           name: Remove dist pakage
           command: rm -rf dist
