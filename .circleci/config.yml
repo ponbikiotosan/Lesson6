@@ -15,8 +15,7 @@ jobs:
       - run:
           name: Installing gh-pages
           command: mkdir ~/.npm-global
-      -run:
-          command: npm config set prefix '~/.npm-global'
+      - run: npm config set prefix '~/.npm-global'
       - run: export PATH=~/.npm-global/bin:$PATH
       - run: source ~/.profile
       - run: npm install -g gh-pages
