@@ -5,9 +5,9 @@ jobs:
       - image: circleci/node:10.15.3
     steps: 
       - checkout
-      # - run: 
-      #     name: Installing the modules
-      #     command: npm install
+      - run: 
+          name: Installing the modules
+          command: npm install
       - save_cache:
           key: dependency-cache-{{ checksum "package.json" }}
           paths:
@@ -19,11 +19,8 @@ jobs:
           name: Remove dist pakage
           command: rm -rf dist
       - run: 
-          name: Installing parcel
-          command: npm i parcel -g
-      - run: 
           name: Building a projeck
-          command: parcel build ./index.html  --public-url /Lesson6
+          command: npm run build
       - run: 
           name: Push to Github Pages
           command: npm run gh-pages -d dist
