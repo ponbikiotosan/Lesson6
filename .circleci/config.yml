@@ -44,9 +44,10 @@ jobs:
           command: npm run build
 workflows:
   version: 2
-  jobs:
-    - task1.1
-    - task1.2
+  first_second:
+    jobs:
+      - task1.1
+      - task1.2
 
 
   
