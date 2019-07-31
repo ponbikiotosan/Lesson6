@@ -58,7 +58,7 @@ workflows:
     jobs:
       - task1.1
       - task1.2
-  deploy:
+  deploing:
     requires:
       - first_second
     jobs:
