@@ -1,10 +1,13 @@
 version: 2
 jobs: 
-  build:
+  task1.1:
     docker:
       - image: circleci/node:10.15.3
+    working_directory: ../1.2
     steps: 
       - checkout
+      - restore_cache:
+          key: dependency-cache-{{ checksum "package.json" }}
       - run: 
           name: Installing the modules
           command: npm install
@@ -13,19 +16,40 @@ jobs:
           paths:
             - ./node_modules
       - run:
-          name: Installing gh-pages and parcel
-          command: sudo npm install -g gh-pages parcel
+          name: Linter
+          command: npm run lint
       - run: 
           name: Building a project
-          command: |-
-              rm -rf dist
-              parcel build ./index.html  --public-url /Lesson6
-      - run: |- 
-            git config user.email "ikharlamov21@gmail.com"
-            git config user.name "Kharya1337"
+          command: npm run build
+  task1.2:
+    docker:
+      - image: circleci/node:10.15.3
+    working_directory: ../1.1
+    steps: 
+      - checkout
+      - restore_cache:
+          key: dependency-cache-{{ checksum "package.json" }}
       - run: 
-          name: Push to Github Pages
-          command: gh-pages -d dist
+          name: Installing the modules
+          command: npm install
+      - save_cache:
+          key: dependency-cache-{{ checksum "package.json" }}
+          paths:
+            - ./node_modules
+      - run:
+          name: Linter
+          command: npm run lint
+      - run: 
+          name: Building a project
+          command: npm run build
+
+workflows:
+  version: 2
+  jobs:
+    - task1.1
+    - task1.2
+
+
   
     
     
