@@ -42,12 +42,29 @@ jobs:
       - run: 
           name: Building a project
           command: npm run build
+  deploy:
+    requires:
+      - first_second
+    branches:
+      only:
+        - master
+    jobs:
+      run:
+        name: Deploy
+        command: npm run deploy
 workflows:
   version: 2
   first_second:
     jobs:
       - task1.1
       - task1.2
+  deploy:
+    requires:
+      - first_second
+    jobs:
+      - deploy
+
+
 
 
   
