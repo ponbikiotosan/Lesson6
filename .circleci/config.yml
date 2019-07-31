@@ -3,7 +3,6 @@ jobs:
   task1.1:
     docker:
       - image: circleci/node:10.15.3
-    working_directory: ../1.1
     steps: 
       - checkout
       - restore_cache:
